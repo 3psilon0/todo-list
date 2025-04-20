@@ -1,0 +1,118 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.poppins-light {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  .poppins-extralight-italic {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: italic;
+  }
+
+  .poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+body {
+    color: wheat;
+    font-family: 'poppins-regular', sans-serif;
+    font-size: 14px;
+    background: url('./assets/images/desert.jpg');
+    background-repeat:no-repeat;
+    -webkit-background-size:cover;
+    -moz-background-size:cover;
+    -o-background-size:cover;
+    background-size:cover;
+    background-position:center;
+    display: grid;
+    grid-template-columns: minmax(350px, 0.2fr) minmax(650px, 0.8fr);
+}
+
+a {
+    text-decoration: none;
+}
+
+#sidebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 91vh;
+    margin: 20px 10px 20px 20px;
+    padding: 20px;
+    background: rgba(44, 16, 11, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur( 10px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#sidebar::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-container {
+    height: 100%;
+    width: 100%;
+    margin-right: auto;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    height: 70vh;
+    overflow: scroll;
+}
+
+.default-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: 1px solid wheat;
+    border-radius: 100%;
+    padding: 1px;
+    color: wheat;
+}
+
+.default-button:hover {
+    background-color: rgba(174, 92, 67, 0.316);
+    cursor: pointer;
+}
+
+.photo-credits > a{
+    color: rgba(201, 106, 38, 0.502);
+}
+
+#content {
+    height: 91vh;
+    margin: 20px 20px 20px 10px ;
+    padding: 20px;
+    background: rgba(44, 16, 11, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur( 8px );
+    -webkit-backdrop-filter: blur( 8px );
+    border-radius: 10px;
+}

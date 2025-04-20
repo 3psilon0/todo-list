@@ -1,0 +1,30 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "To-Do list app implemented with JS",
+  "homepage": "https://github.com/3psilon0/todo-list#readme",
+  "bugs": {
+    "url": "https://github.com/3psilon0/todo-list/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3psilon0/todo-list.git"
+  },
+  "license": "ISC",
+  "author": "3psilon0",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.99.5",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.1"
+  }
+}
