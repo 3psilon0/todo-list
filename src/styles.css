@@ -34,7 +34,7 @@ body {
     background-size:cover;
     background-position:center;
     display: grid;
-    grid-template-columns: minmax(350px, 0.2fr) minmax(650px, 0.8fr);
+    grid-template-columns:0.2fr 0.8fr;
 }
 
 a {
@@ -68,6 +68,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px;
 }
 
 .navbar-container {
@@ -83,7 +84,8 @@ a {
     align-items: flex-start;
     gap: 10px;
     height: 70vh;
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .default-button {
@@ -98,8 +100,43 @@ a {
 }
 
 .default-button:hover {
-    background-color: rgba(174, 92, 67, 0.316);
+    background-color: rgba(133, 61, 40, 0.765);
     cursor: pointer;
+}
+
+.list-create-button {
+    border-radius: 10px;
+    position: relative;
+    width: 92%;
+}
+
+.list-create-input {
+    background-color: rgba(106, 61, 19, 0.307);
+    border: none;
+    border-radius: 100px;
+    width: 100%;
+    padding: 10px;
+    font-family: 'poppins-light', sans-serif;
+    color: wheat;
+}
+
+.list-create-input:focus {
+    outline: none;
+    border: 1px solid rgba(117, 49, 40, 0.407);
+}
+
+.list-create-confirm {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    border: none;
+}
+
+.list-create-cancel {
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    border: none;
 }
 
 .photo-credits > a{
