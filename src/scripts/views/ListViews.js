@@ -1,9 +1,9 @@
-import checkPng from '../assets/images/check.png'
-import closePng from '../assets/images/close.png'
+import checkPng from '../../assets/images/check.png'
+import closePng from '../../assets/images/close.png'
 
 export default class {
 
-    static renderListButton(){
+    static renderListButton(listName){
         
     }
     
