@@ -33,7 +33,7 @@ export default class{
     addItem = (itemId, title, desc, dueDate, priority) => {
         const item = new ListItem(itemId, this.id, title, desc, dueDate, priority);
         this.items.push(item);
-        storage.save(`list${this.id}`, JSON.stringify(this))
+        storage.save(`list-${this.id}`, JSON.stringify(this))
     }
 
     searchItem(itemId){
@@ -42,18 +42,18 @@ export default class{
 
     removeItem(itemId){
         this.items.splice(this.items.indexOf(this.searchItem(itemId)), 1);
-        storage.save(`list${this.id}`, JSON.stringify(this))
+        storage.save(`list-${this.id}`, JSON.stringify(this))
     }
 
     editItem(itemId, title, desc, dueDate, priority){
         const item = this.items.find(item => item.id === itemId);
         item.edit(title, desc, dueDate, priority);
-        storage.save(`list${this.id}`, JSON.stringify(this))
+        storage.save(`list-${this.id}`, JSON.stringify(this))
     }
 
     editListName(name){
         this.name = name;
-        storage.save(`list${this.id}`, JSON.stringify(this))
+        storage.save(`list-${this.id}`, JSON.stringify(this))
     }
 
     get nCheckedItems(){

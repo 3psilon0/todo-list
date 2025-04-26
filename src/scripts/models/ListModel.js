@@ -14,7 +14,7 @@ export default class{
     createList(listId, name) {
         const list = new List(listId, name);
         this.lists.push(list);
-        storage.save(`list${listId}`, JSON.stringify(list));
+        storage.save(`list-${listId}`, JSON.stringify(list));
     }
 
     searchList(listId){
@@ -23,6 +23,6 @@ export default class{
     
     deleteList(listId){
     this.lists.splice(this.lists.indexOf(this.searchList(listId)), 1);
-    storage.delete(`list${listId}`);
+    storage.delete(`list-${listId}`);
     }
 }
