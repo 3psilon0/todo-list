@@ -3,10 +3,10 @@ import List from './List.js'
 
 export default class{
     constructor(){
-        this.lists = []
+        this.lists = [];
         Object.keys(storage.instance).forEach(key => {
-            if(key.slice(0, 3) === 'list'){
-                this.lists.push(storage.instance[key]);
+            if(key.slice(0, 4) === 'list'){
+                this.lists.push(JSON.parse(storage.instance[key]));
             }
         })
     }
