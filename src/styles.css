@@ -111,6 +111,23 @@ img {
     cursor: pointer;
 }
 
+.list-add-button {
+    background: none;
+    border: none;
+}
+
+.add-icon:hover{
+    background-color: rgba(133, 61, 40, 0.765);
+    cursor: pointer;
+}
+
+.add-icon {
+    border-radius: 100%;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+}
+
 .list-create-button {
     border-radius: 10px;
     position: relative;
