@@ -24,6 +24,19 @@ export default class {
         `;
         navbar.appendChild(listButton);
     }
+
+    static renderListEditButton(listId){
+        const listButton = document.querySelector(`div[data-id="${listId}"]`);
+        listButton.innerHTML = `
+            <input type="text" class="list-edit-input" placeholder="Enter list name" required>
+            <button type="button" class="default-button list-edit-confirm">
+                <img src="${checkPng}" alt="check">
+            </button>
+            <button type="button" class="default-button list-edit-cancel">
+                <img src="${closePng}" alt="close">
+            </button>
+        `;
+    }
     
     static renderListCreateButton(){
         const navbar = document.querySelector('.navbar');

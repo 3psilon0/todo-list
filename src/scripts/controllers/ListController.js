@@ -13,6 +13,10 @@ export default class{
             this.model.createList(listId, listName);
         }
 
+        document.querySelector(`div[data-id="${listId}"]`).children.item(2).children.item(0).addEventListener('click', (e) => {
+            this.views.renderListEditButton(listId);
+        })
+
         document.querySelector(`div[data-id="${listId}"]`).children.item(2).children.item(1).addEventListener('click', (e) => {
             document.querySelector(`div[data-id="${listId}"]`).remove();
             this.model.deleteList(listId);  

@@ -145,9 +145,19 @@ img {
     color: wheat;
 }
 
-.list-create-input:focus {
+.list-edit-input {
+    background-color: transparent;
+    border: transparent;
+    width: 60%;
+    color: wheat;
+    font-family: 'poppins-light', sans-serif;
+    font-size: 18px;
+    margin-left: 40px;
+}
+
+.list-create-input:focus, .list-edit-input:focus {
     outline: none;
-    border: 1px solid rgba(117, 49, 40, 0.407);
+    /* border: 1px solid rgba(117, 49, 40, 0.407); */
 }
 
 .list-create-confirm {
@@ -167,12 +177,12 @@ img {
 .list-button {
     position: relative;
     width: 92%;
-    height: 45px;
+    height: 35px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 20px;
-    background: rgba(128, 0, 0, 0.224);
+    background: rgba(101, 31, 15, 0.33);
     padding: 5px 10px 5px 10px;
 }
 
@@ -185,8 +195,8 @@ img {
 }
 
 .tag-icon{
-    height: 32px;
-    width: 32px;
+    height: 30px;
+    width: 30px;
 }
 
 .photo-credits > a{
