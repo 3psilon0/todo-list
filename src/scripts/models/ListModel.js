@@ -6,7 +6,9 @@ export default class{
         this.lists = [];
         Object.keys(storage.instance).forEach(key => {
             if(key.slice(0, 4) === 'list'){
-                this.lists.push(JSON.parse(storage.instance[key]));
+                const storedList = JSON.parse(storage.instance[key]);
+                const retrievedList = new List(storedList.id, storedList.name, storedList.items);
+                this.lists.push(retrievedList);
             }
         })
     }

@@ -24,13 +24,13 @@ class ListItem{
 }
 
 export default class{
-    constructor(listId, name){
+    constructor(listId, listName, listItems = []){
         this.id = listId;
-        this.name = name;
-        this.items = [];
+        this.name = listName;
+        this.items = listItems;
     }
 
-    addItem = (itemId, title, desc, dueDate, priority) => {
+    addItem(itemId, title, desc, dueDate, priority){
         const item = new ListItem(itemId, this.id, title, desc, dueDate, priority);
         this.items.push(item);
         storage.save(`list-${this.id}`, JSON.stringify(this))
