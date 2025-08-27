@@ -8,9 +8,11 @@ export default class{
             if(key.slice(0, 4) === 'list'){
                 const storedList = JSON.parse(storage.instance[key]);
                 const retrievedList = new List(storedList.id, storedList.name, storedList.items);
-                this.lists.push(retrievedList);
+                this.lists.push(retrievedList); 
             }
         })
+        this.lists.sort((a, b) => a.name.localeCompare(b.name));
+        console.log(this.lists);
     }
 
     createList(listId, name) {
