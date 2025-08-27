@@ -26,8 +26,9 @@ export default class {
     }
 
     static renderListEditButton(listId){
-        const listButton = document.querySelector(`div[data-id="${listId}"]`);
-        listButton.innerHTML = `
+        const editButton = document.querySelector(`div[data-id="${listId}"]`);
+        editButton.className = 'list-edit-button';
+        editButton.innerHTML = `
             <input type="text" class="list-edit-input" placeholder="Enter list name" required>
             <button type="button" class="default-button list-edit-confirm">
                 <img src="${checkPng}" alt="check">

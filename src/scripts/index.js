@@ -7,7 +7,6 @@ const model = new ListModel();
 const controller = new ListController(views, model);
 
 controller.initialize();
-document.querySelector('.list-add-button').addEventListener('click', controller.handleListCreate);
 
-
+console.log(window.localStorage);
 console.log(model.lists);
