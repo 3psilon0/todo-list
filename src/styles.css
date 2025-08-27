@@ -26,8 +26,9 @@ body {
     display: grid;
     grid-template-columns:0.2fr 0.8fr;
     color: wheat;
-    font-family: 'poppins-regular', sans-serif;
-    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
     background: url('./assets/images/desert.jpg');
     background-repeat:no-repeat;
     -webkit-background-size:cover;
@@ -133,17 +134,19 @@ img {
 .list-create-button {
     border-radius: 10px;
     position: relative;
-    width: 92%;
+    width: 90%;
+    margin: 10px 0px 10px 0px;
 }
 
 .list-create-input {
     background-color: rgba(109, 3, 3, 0.342);
-    border: none;
-    border-radius: 100px;
+    border: transparent;
+    border-radius: 15px;
     width: 100%;
     height: 20px;
     padding: 10px;
     font-family: 'poppins-light', sans-serif;
+    font-size: 16px;
     color: wheat;
 }
 
@@ -152,9 +155,11 @@ img {
     border: transparent;
     width: 60%;
     color: wheat;
-    font-family: 'poppins-light', sans-serif;
+    font-family: 'Poppins';
     font-size: 18px;
-    margin-left: 40px;
+    font-weight: 200;
+    font-style: italic;
+    margin-left: 43px;
 }
 
 .list-create-input:focus, .list-edit-input:focus {
@@ -178,7 +183,7 @@ img {
 
 .list-button {
     position: relative;
-    width: 92%;
+    width: 90%;
     height: 35px;
     display: flex;
     justify-content: space-between;
@@ -186,6 +191,22 @@ img {
     border-radius: 20px;
     background: rgba(101, 31, 15, 0.33);
     padding: 5px 10px 5px 10px;
+}
+
+.list-edit-button {
+    width: 92%;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    background: rgba(101, 31, 15, 0.537);
+    padding: 5px 10px 5px 10px;
+}
+
+.list-button:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 5px 1px rgba(89, 30, 20, 0.674);
 }
 
 .list-button-text {
