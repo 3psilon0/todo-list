@@ -135,7 +135,7 @@ img {
     border-radius: 10px;
     position: relative;
     width: 90%;
-    margin: 10px 0px 10px 0px;
+    margin: 0px 0px 10px 0px;
 }
 
 .list-create-input {
@@ -194,7 +194,7 @@ img {
 }
 
 .list-edit-button {
-    width: 92%;
+    width: 90%;
     height: 35px;
     display: flex;
     justify-content: space-between;
@@ -227,6 +227,10 @@ img {
 }
 
 #content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     min-width: 1190px;
     height: 91vh;
     margin: 20px 20px 20px 10px ;
