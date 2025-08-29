@@ -18,6 +18,7 @@ export default class{
     createList(listId, name) {
         const list = new List(listId, name);
         this.lists.push(list);
+        this.lists.sort((a, b) => a.name.localeCompare(b.name));
         storage.save(`list-${listId}`, JSON.stringify(list));
     }
 
