@@ -16,22 +16,30 @@ export default class {
                 const input = document.querySelector(".list-create-input");
                 this.createList(uuidv4(), input.checkValidity() ? input.value : "Default List");
                 listCreateButton.remove();
-            }
+            };
 
             const handleCreateCancel = () => {
                 listCreateButton = document.querySelector(".list-create-button");
                 listCreateButton.remove();
-            }
+            };
 
             this.views.renderListCreateButton();
 
-            document.querySelector(".list-create-confirm").addEventListener("click", handleCreateConfirm);
+            document
+                .querySelector(".list-create-confirm")
+                .addEventListener("click", handleCreateConfirm);
 
-            document.querySelector(".list-create-cancel").addEventListener("click", handleCreateCancel);
+            document
+                .querySelector(".list-create-cancel")
+                .addEventListener("click", handleCreateCancel);
         }
     };
 
-    handleListEdit(listId, listName) {
+    handleListEdit = (e) => {
+        const parentListTag = e.currentTarget.parentElement.parentElement;
+        const listId = parentListTag.dataset.id;
+        const listName = this.model.searchList(listId).name;
+
         this.views.renderListEditButton(listId);
         const listEditButton = document.querySelector(`div[data-id="${listId}"]`);
 
@@ -56,7 +64,9 @@ export default class {
         });
     }
 
-    handleListDelete(listId) {
+    handleListDelete = (e) => {
+        const listId = e.currentTarget.parentElement.parentElement.dataset.id;
+
         document.querySelector(`div[data-id="${listId}"]`).remove();
         this.model.deleteList(listId);
     }
@@ -76,13 +86,13 @@ export default class {
                 .querySelector(`div[data-id="${listId}"]`)
                 .children.item(2)
                 .children.item(0)
-                .addEventListener("click", () => {this.handleListEdit(listId, listName)});
+                .addEventListener("click", this.handleListEdit);
 
             document
                 .querySelector(`div[data-id="${listId}"]`)
                 .children.item(2)
                 .children.item(1)
-                .addEventListener("click", () => {this.handleListDelete(listId)});
+                .addEventListener("click", this.handleListDelete);
         };
 
         document.querySelector(".navbar").innerHTML = "";
