@@ -71,7 +71,7 @@ export default class {
         this.model.deleteList(listId);
     }
 
-    initialize() {
+    initialize = () => {
         this.model.lists.forEach((list) => {
             this.createList(list.id, list.name);
         });
@@ -81,6 +81,13 @@ export default class {
     updateSidebarUI() {
         const addListButton = (listId, listName) => {
             this.views.renderListButton(listId, listName);
+
+            document.querySelector(`div[data-id="${listId}"]`).addEventListener("click", (e) => {
+                if(e.target.className === 'list-button' || e.target.className === 'list-button-text'){
+                    const list = this.model.searchList(listId);
+                    this.views.renderListLayout(list.name, list.nCheckedItems, list.items.length);
+                }
+            })
 
             document
                 .querySelector(`div[data-id="${listId}"]`)

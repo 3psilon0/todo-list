@@ -211,7 +211,7 @@ img {
 
 .list-button:hover {
     cursor: pointer;
-    box-shadow: 5px 5px 5px 1px rgba(89, 30, 20, 0.674);
+    box-shadow: 2px 5px 5px 1px rgba(89, 30, 20, 0.674);
 }
 
 .list-button-text {
@@ -249,7 +249,7 @@ img {
     align-items: center;
     gap: 20px;
     min-width: 0;
-    background-color: rgba(107, 59, 59, 0.296);
+    background-color: rgba(44, 16, 11, 0.248);
     padding: 0 30px 0 30px;
     border-radius: 20px 20px 0 0;
 }

@@ -11,7 +11,7 @@ export default class {
         content.innerHTML = `
           <div class="content-header">
             <div class="list-titlebar">
-              <p class="titlebar-text">// ${listName} </br> <span class="titlebar-info">${nTasksDone} of ${nTasksTotal} tasks completed</span> </p>
+              <p class="titlebar-text">// ${listName} </br> <span class="titlebar-info">${nTasksTotal === 0 ? "There are no items in this list" : `${nTasksDone} of ${nTasksTotal} tasks completed` }</span> </p>
             </div>
             <div class="item-add-container">
               <button type="button" class="default-button item-add-button">
