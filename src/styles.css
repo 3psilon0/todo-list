@@ -25,6 +25,7 @@ html, body {
 body {
     display: grid;
     grid-template-columns:0.2fr 0.8fr;
+    align-items: center;
     color: wheat;
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -75,27 +76,31 @@ img {
 }
 
 .sidebar-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
+    height: 5rem;
+    width: 100%;
+    position: relative;
 }
 
 .navbar-container {
     height: 100%;
     width: 100%;
-    margin-right: auto;
+    margin: auto;
 }
 
 .navbar {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
     height: 68.5vh;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+
+.navbar-title {
+    position: absolute;
+    left: 15px;
 }
 
 .default-button {
@@ -115,6 +120,9 @@ img {
 }
 
 .list-add-button {
+    position: absolute;
+    top: 15px;
+    right: 8px;
     background: none;
     border: none;
 }
@@ -132,20 +140,18 @@ img {
 }
 
 .list-create-button {
-    border-radius: 10px;
+    background-color: rgba(109, 3, 3, 0.342);
+    border-radius: 15px;
     position: relative;
-    width: 90%;
+    width: 95%;
     margin: 0px 0px 10px 0px;
 }
 
 .list-create-input {
-    background-color: rgba(109, 3, 3, 0.342);
-    border: transparent;
-    border-radius: 15px;
-    width: 100%;
-    height: 20px;
+    background-color: transparent;
+    border: none;
+    width: 70%;
     padding: 10px;
-    font-family: 'poppins-light', sans-serif;
     font-size: 16px;
     color: wheat;
 }
@@ -164,20 +170,19 @@ img {
 
 .list-create-input:focus, .list-edit-input:focus {
     outline: none;
-    /* border: 1px solid rgba(117, 49, 40, 0.407); */
 }
 
 .list-create-confirm {
     position: absolute;
     top: 5px;
-    right: 20px;
+    right: 40px;
     border: none;
 }
 
 .list-create-cancel {
     position: absolute;
     top: 5px;
-    right: -10px;
+    right: 8px;
     border: none;
 }
 
@@ -188,7 +193,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 15px;
     background: rgba(101, 31, 15, 0.33);
     padding: 5px 10px 5px 10px;
 }
@@ -199,7 +204,7 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 15px;
     background: rgba(101, 31, 15, 0.537);
     padding: 5px 10px 5px 10px;
 }
@@ -227,17 +232,61 @@ img {
 }
 
 #content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    min-width: 1190px;
-    height: 91vh;
-    margin: 20px 20px 20px 10px ;
-    padding: 20px;
+    display: grid;
+    grid-template-rows: 0.1fr 1fr;
+    margin: 10px;
+    height: 95vh;
     background: rgba(44, 16, 11, 0.28);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
     backdrop-filter: blur( 8px );
     -webkit-backdrop-filter: blur( 8px );
     border-radius: 20px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    min-width: 0;
+    background-color: rgba(107, 59, 59, 0.296);
+    padding: 0 30px 0 30px;
+    border-radius: 20px 20px 0 0;
+}
+
+
+.list-titlebar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    min-width: 0;
+    font-size: 36px;
+}
+
+.titlebar-text {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.titlebar-info {
+    font-size: 20px;
+    font-style: italic;
+}
+
+.item-add-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-add-button{
+    width: 55px;
+    height: 55px;
+}
+
+.add-icon-new{
+    width: 100%;
+    height: 100%;
 }
