@@ -12,6 +12,53 @@
     <link rel="stylesheet" href="./styles.css" />
     <title>To-Do List</title>
   </head>
+  <dialog class="item-add-dialog">
+    <h1 class="dialog-title"></h1>
+
+    <form action="#" class="item-add-form">
+      <fieldset class="form-group">
+        <label for="item-title-input">Name</label>
+        <input type="text" name="title" id="item-title-input" placeholder="Enter task name" required>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="item-dueDate-input">Due by</label>
+        <input type="date" name="dueDate" id="item-dueDate-input" required>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="">Priority</label>
+        <div class="form-radio-buttons">
+          <div class="radio-group">
+            <input type="radio" name="prio" id="prio-low-input" value="low" checked>
+            <label for="prio-low-input">Low</label>
+          </div>
+          <div class="radio-group">
+            <input type="radio" name="prio" id="prio-med-input" value="med">
+            <label for="prio-med-input">Medium</label>
+          </div>
+          <div class="radio-group">
+            <input type="radio" name="prio" id="prio-high-input" value="high">
+            <label for="prio-low-input">High</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <label for="item-desc-input">Description</label>
+        <textarea name="desc" id="item-desc-input"></textarea>
+      </fieldset>
+
+      <div class="dialog-form-buttons">
+        <button type="submit" class="form-button form-confirm-button">
+          <img src="./assets/images/check.png" alt="Submit">
+        </button>
+        <button type="button" class="form-button form-cancel-button">
+          <img src="./assets/images/close.png" alt="Cancel">
+        </button>
+      </div>
+    </form>
+  </dialog>
   <body>
     <div id="sidebar">
       <h1>&lt to-do /&gt</h1>
