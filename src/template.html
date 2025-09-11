@@ -1,92 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-    <title>To-Do List</title>
-  </head>
-  <dialog class="item-add-dialog">
-    <h1 class="dialog-title"></h1>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./styles.css" />
+        <title>To-Do List</title>
+    </head>
+    <dialog class="item-add-dialog">
+        <h1 class="dialog-title"></h1>
 
-    <form action="#" class="item-add-form">
-      <fieldset class="form-group">
-        <label for="item-title-input">Name</label>
-        <input type="text" name="title" id="item-title-input" placeholder="Enter task name" required>
-      </fieldset>
+        <form action="#" class="item-add-form">
+            <fieldset class="form-group">
+                <label for="item-title-input">Name</label>
+                <input
+                    type="text"
+                    name="title"
+                    id="item-title-input"
+                    placeholder="Enter task name"
+                    required
+                    maxlength="255"
+                />
+            </fieldset>
 
-      <fieldset class="form-group">
-        <label for="item-dueDate-input">Due by</label>
-        <input type="date" name="dueDate" id="item-dueDate-input" required>
-      </fieldset>
+            <fieldset class="form-group">
+                <label for="item-dueDate-input">Due by</label>
+                <input type="date" name="dueDate" id="item-dueDate-input" required />
+            </fieldset>
 
-      <fieldset class="form-group">
-        <label for="">Priority</label>
-        <div class="form-radio-buttons">
-          <div class="radio-group">
-            <input type="radio" name="prio" id="prio-low-input" value="low" checked>
-            <label for="prio-low-input">Low</label>
-          </div>
-          <div class="radio-group">
-            <input type="radio" name="prio" id="prio-med-input" value="med">
-            <label for="prio-med-input">Medium</label>
-          </div>
-          <div class="radio-group">
-            <input type="radio" name="prio" id="prio-high-input" value="high">
-            <label for="prio-low-input">High</label>
-          </div>
+            <fieldset class="form-group">
+                <label for="">Priority</label>
+                <div class="form-radio-buttons">
+                    <div class="radio-group">
+                        <input type="radio" name="prio" id="prio-low-input" value="low" checked />
+                        <label for="prio-low-input">Low</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" name="prio" id="prio-med-input" value="med" />
+                        <label for="prio-med-input">Medium</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" name="prio" id="prio-high-input" value="high" />
+                        <label for="prio-low-input">High</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-group">
+                <label for="item-desc-input">Description</label>
+                <textarea name="desc" id="item-desc-input" placeholder="Add a description (Optional)" maxlength="700"></textarea>
+            </fieldset>
+
+            <div class="dialog-form-buttons">
+                <button type="submit" class="form-button form-confirm-button">
+                    <img src="./assets/images/check.png" alt="Submit" />
+                </button>
+                <button type="button" class="form-button form-cancel-button">
+                    <img src="./assets/images/close.png" alt="Cancel" />
+                </button>
+            </div>
+        </form>
+    </dialog>
+    <body>
+        <div id="sidebar">
+            <h1>&lt to-do /&gt</h1>
+            <div class="navbar-container">
+                <div class="sidebar-heading">
+                    <h1 class="navbar-title">// Your lists</h1>
+                    <button type="button" class="list-add-button" title="Add new list">
+                        <img src="./assets/images/add.png" alt="add" class="add-icon" />
+                    </button>
+                </div>
+                <div class="navbar"></div>
+            </div>
+            <div class="photo-credits">
+                Photo by
+                <a
+                    href="https://unsplash.com/@wolfgang_hasselmann?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+                    target="_blank"
+                    >Wolfgang Hasselmann</a
+                >
+                on
+                <a
+                    href="https://unsplash.com/photos/dessert-field-pVr6wvUneMk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+                    target="_blank"
+                    >Unsplash</a
+                >
+            </div>
         </div>
-      </fieldset>
-
-      <fieldset class="form-group">
-        <label for="item-desc-input">Description</label>
-        <textarea name="desc" id="item-desc-input"></textarea>
-      </fieldset>
-
-      <div class="dialog-form-buttons">
-        <button type="submit" class="form-button form-confirm-button">
-          <img src="./assets/images/check.png" alt="Submit">
-        </button>
-        <button type="button" class="form-button form-cancel-button">
-          <img src="./assets/images/close.png" alt="Cancel">
-        </button>
-      </div>
-    </form>
-  </dialog>
-  <body>
-    <div id="sidebar">
-      <h1>&lt to-do /&gt</h1>
-      <div class="navbar-container">
-        <div class="sidebar-heading">
-          <h1 class="navbar-title">// Your lists</h1>
-          <button type="button" class="list-add-button">
-            <img src="./assets/images/add.png" alt="add" class="add-icon" />
-          </button>
-        </div>
-        <div class="navbar">
-        </div>
-      </div>
-      <div class="photo-credits">
-        Photo by
-        <a
-          href="https://unsplash.com/@wolfgang_hasselmann?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
-          target="_blank"
-          >Wolfgang Hasselmann</a
-        >
-        on
-        <a
-          href="https://unsplash.com/photos/dessert-field-pVr6wvUneMk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
-          target="_blank"
-          >Unsplash</a
-        >
-      </div>
-    </div>
-    <div id="content"></div>
-  </body>
+        <div id="content"></div>
+    </body>
 </html>
