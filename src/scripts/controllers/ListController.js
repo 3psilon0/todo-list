@@ -1,6 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
-
-export default class {
+    export default class {
     constructor(ListViews, ListModel) {
         this.views = ListViews;
         this.model = ListModel;
@@ -14,7 +12,7 @@ export default class {
             const handleCreateConfirm = () => {
                 listCreateButton = document.querySelector(".list-create-button");
                 const input = document.querySelector(".list-create-input");
-                this.createList(uuidv4(), input.checkValidity() ? input.value : "Default List");
+                this.createList(this.model.listCounter, input.checkValidity() ? input.value : "Default List");
                 listCreateButton.remove();
             };
 
@@ -71,23 +69,86 @@ export default class {
         this.model.deleteList(listId);
     }
 
+    handleItemCreate = () => {
+        const handleCreateConfirm = (e) => {
+            e.preventDefault();
+            const listId = document.querySelector('#content').dataset.listId;
+            const currentList = this.model.searchList(listId);
+            const form = document.querySelector('.item-add-form');
+
+            if(form.checkValidity()){
+                document.querySelector('.form-confirm-button').removeEventListener("click", handleCreateConfirm);
+
+                const desc = document.querySelector('#item-desc-input').value === '' ? 'No description' : document.querySelector('#item-desc-input').value;
+                const dueDate = new Date(document.querySelector('#item-dueDate-input').value).toLocaleString('Us-en', {dateStyle: 'medium'});
+
+                currentList.addItem(currentList.itemCounter, document.querySelector('#item-title-input').value, desc, dueDate, document.querySelector(`input[name='prio']:checked`).value);
+                document.querySelector('.item-add-dialog').close();
+                this.updateContentUI(listId);
+                form.reset();
+            }
+        }
+
+        const handleCreateCancel = () => {
+            document.querySelector('.form-cancel-button').removeEventListener("click", handleCreateCancel);
+            document.querySelector('.item-add-form').reset();
+            document.querySelector('.item-add-dialog').close();
+        }
+
+        document.querySelector('.dialog-title').innerHTML = "Add new task";
+        document.querySelector('.item-add-dialog').showModal();
+
+        document.querySelector('.form-confirm-button').addEventListener("click", handleCreateConfirm);
+        document.querySelector('.form-cancel-button').addEventListener("click", handleCreateCancel);
+    }
+
+    handleItemToggle = (e) => {
+        const parentId = e.target.parentElement.parentElement.parentElement.dataset.parentId;
+        const itemId = e.target.parentElement.parentElement.parentElement.dataset.itemId;
+        const currentList = this.model.searchList(parentId);
+
+        currentList.toggleItem(itemId);
+        this.updateContentUI(parentId);
+    }
+
+    handleListShow = (e) => {
+        if(e.target.className === 'list-button' || e.target.className === 'list-button-text'){
+            let listId;
+            switch(e.target.className){
+                case 'list-button':
+                    listId = e.target.dataset.id;
+                    break;
+                case 'list-button-text':
+                    listId = e.target.parentElement.dataset.id;
+                    break;
+            }
+            this.updateContentUI(listId);
+        }
+    }
+
     initialize = () => {
-        this.model.lists.forEach((list) => {
-            this.createList(list.id, list.name);
-        });
+        this.updateSidebarUI();
         document.querySelector(".list-add-button").addEventListener("click", this.handleListCreate);
+    }
+
+    updateContentUI(listId) {
+        const list = this.model.searchList(listId);
+
+        this.views.renderListLayout(list.id, list.name, list.nCheckedItems, list.items.length);
+        document.querySelector('.item-add-button').addEventListener("click", this.handleItemCreate);
+
+        list.items.forEach((item) => {
+            this.views.renderListItem(item.id, item.parentId, item.title, item.desc, item.dueDate, item.priority, item.checked);
+
+            document.querySelector(`div[data-item-id="${item.id}"]`).children.item(0).children.item(0).children.item(1).addEventListener("click", this.handleItemToggle);
+        });
     }
 
     updateSidebarUI() {
         const addListButton = (listId, listName) => {
             this.views.renderListButton(listId, listName);
 
-            document.querySelector(`div[data-id="${listId}"]`).addEventListener("click", (e) => {
-                if(e.target.className === 'list-button' || e.target.className === 'list-button-text'){
-                    const list = this.model.searchList(listId);
-                    this.views.renderListLayout(list.name, list.nCheckedItems, list.items.length);
-                }
-            })
+            document.querySelector(`div[data-id="${listId}"]`).addEventListener("click", this.handleListShow);
 
             document
                 .querySelector(`div[data-id="${listId}"]`)
