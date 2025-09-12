@@ -78,6 +78,7 @@
 
             if(form.checkValidity()){
                 document.querySelector('.form-confirm-button').removeEventListener("click", handleCreateConfirm);
+                document.querySelector('.form-cancel-button').removeEventListener("click", handleCreateCancel);
 
                 const desc = document.querySelector('#item-desc-input').value === '' ? 'No description' : document.querySelector('#item-desc-input').value;
                 const dueDate = new Date(document.querySelector('#item-dueDate-input').value).toLocaleString('Us-en', {dateStyle: 'medium'});
@@ -90,7 +91,9 @@
         }
 
         const handleCreateCancel = () => {
+            document.querySelector('.form-confirm-button').removeEventListener("click", handleCreateConfirm);
             document.querySelector('.form-cancel-button').removeEventListener("click", handleCreateCancel);
+            
             document.querySelector('.item-add-form').reset();
             document.querySelector('.item-add-dialog').close();
         }
