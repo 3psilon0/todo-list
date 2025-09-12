@@ -4,27 +4,9 @@ html, body {
     height: 100%;
 }
 
-.poppins-light {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-  }
-
-  .poppins-extralight-italic {
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    font-style: italic;
-  }
-
-  .poppins-regular {
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
 body {
     display: grid;
-    grid-template-columns:0.2fr 0.8fr;
+    grid-template-columns:0.2fr 0.98fr;
     align-items: center;
     color: wheat;
     font-family: 'Poppins', sans-serif;
@@ -38,6 +20,7 @@ body {
     background-size:cover;
     background-position:center;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
 a {
@@ -57,7 +40,7 @@ img {
     align-items: center;
     flex-direction: column;
     gap: 10px;
-    min-width: 275px;
+    width: 18.5rem;
     height: 91vh;
     margin: 20px 10px 20px 20px;
     padding: 20px;
@@ -104,8 +87,8 @@ img {
 }
 
 .default-button {
-    width: 30px;
-    height: 30px;
+    width: 1.7rem;
+    height: 1.7rem;
     background: none;
     border: none;
     border-radius: 100%;
@@ -227,6 +210,10 @@ img {
     width: 30px;
 }
 
+.photo-credits {
+    font-size: 13px;
+}
+
 .photo-credits > a{
     color: rgba(201, 106, 38, 0.502);
 }
@@ -236,6 +223,7 @@ img {
     grid-template-rows: 0.1fr 1fr;
     margin: 10px;
     height: 95vh;
+    width: 100%;
     background: rgba(44, 16, 11, 0.28);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
     backdrop-filter: blur( 8px );
@@ -281,9 +269,9 @@ img {
     justify-content: center;
     align-items: center;
     width: 25%;
-    height: 80%;
+    height: 85%;
     font-family: 'Poppins', sans-serif;
-    background-color: rgba(54, 25, 18, 0.595);
+    background-color: rgb(54, 25, 18);
     color: wheat;
     border: none;
     outline: none;
@@ -318,8 +306,8 @@ img {
     border-radius: 10px;
     outline: none;
     height: 1.66em;
-    width: 100%;
-    padding: 5px;
+    width: 95%;
+    padding: 10px;
     background-color: rgba(98, 62, 62, 0.428);
 }
 
@@ -330,6 +318,7 @@ img {
     gap: 20px;
     width: 80%;
     padding: 10px;
+    margin: 0;
 }
 
 .form-radio-buttons {
@@ -438,5 +427,159 @@ input[type="radio"]:hover {
     justify-content: flex-start;
     align-items: center;
     padding: 30px;
-    overflow: scroll    ;
+    gap: 15px;
+    overflow: scroll;
+}
+
+/* .list-item-container * {
+    border: 1px solid red;
+} */
+
+.prio-high {
+    border-left: 7px solid rgba(255, 0, 0, 0.338);
+}
+
+.prio-med {
+    border-left: 7px solid rgba(255, 255, 0, 0.338);
+}
+
+.prio-low {
+    border-left: 7px solid rgba(0, 128, 0, 0.338);
+}
+
+.list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background-color: rgba(101, 31, 15, 0.338);
+    border-radius: 15px;
+}
+
+.item-main {
+    display: grid;
+    grid-template-columns: 0.04fr 25fr 0.2fr;
+    align-items: center;
+    gap: 5px;
+    padding: 0 10px 0 20px;
+}
+
+.item-desc {
+    text-align: center;
+    overflow-wrap: break-word;
+    min-width: 0;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    width: 80%;
+    overflow: hidden;
+}
+
+.active .item-desc {
+    border-top: 1px dashed wheat;
+    padding: 20px;
+}
+
+.checked {
+    opacity: 0.5;
+    filter: grayscale(70%);
+    text-decoration: line-through;
+}
+
+.item-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+    gap: 10px;
+    width: auto;
+    min-width: 0;
+    padding: 10px;
+    margin-left: 10px;
+    text-wrap: nowrap;
+}
+
+.item-title {
+    font-size: 20px;
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 85%;
+}
+
+
+.item-dueDate {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 200;
+}
+
+.item-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-button {
+    border: none;
+    border-radius: 100%;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+    height: 28px;
+    width: 28px;
+}
+
+.item-dropdown {
+    height: 30px;
+    width: 30px;
+}
+
+.item-button:hover{
+    cursor: pointer;
+}
+
+.item-button > img {
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+}
+
+.item-checkbox-label {
+    position: relative;
+    height: 25px;
+    width: 25px;
+}
+
+.item-checkbox{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    appearance: none;
+}
+
+.item-checkmark {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: 100%;
+    border: 2px solid wheat;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.item-checkmark::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 8px;
+    width: 7px;
+    height: 14px;
+    border: 2px solid wheat;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+.item-checkbox:checked ~ .item-checkmark::after{
+    opacity: 1;
 }

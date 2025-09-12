@@ -4,10 +4,57 @@ import editPng from "../../assets/images/edit.png";
 import deletePng from "../../assets/images/delete.png";
 import tagPng from "../../assets/images/tag.png";
 import addPng from "../../assets/images/add.png"
+import downPng from "../../assets/images/down.png"
+
+
 
 export default class {
-    static renderListLayout(listName, nTasksDone, nTasksTotal) {
+    static renderListItem(itemId, parentId, title, desc, dueDate, priority, checked){
+        const content = document.querySelector('#content');
+        const listItemContainer = document.querySelector('.list-item-container');
+
+        if(content.contains(listItemContainer)){
+            const listItem = document.createElement('div');
+            listItem.classList.add('list-item');
+            listItem.classList.add(`prio-${priority}`);
+            listItem.dataset.itemId = itemId;
+            listItem.dataset.parentId = parentId;
+
+            listItem.innerHTML = `
+                <div class="item-main">
+                <label class="item-checkbox-label">
+                    <input type="checkbox" name="item-checkbox" class="item-checkbox" />
+                    <span class="item-checkmark"></span>
+                </label>
+                <div class="item-text">
+                    <h1 class="item-title">${title}</h1>
+                    <h1 class="item-dueDate">Due by : ${dueDate}</h1>
+                </div>
+                <div class="item-button-container">
+                    <button class="item-button item-dropdown" title="Show item description">
+                        <img src="${downPng}" alt="dropdown" />
+                    </button>
+                    <button class="item-button item-edit" title="Edit item details">
+                        <img src="${editPng}" alt="edit item" />
+                    </button>
+                    <button class="item-button item-delete" title="Delete item">
+                        <img src="${deletePng}" alt="delete item" />
+                    </button>
+                </div>
+              </div>
+              <div class="item-desc">${desc}</div>
+            `;
+            listItemContainer.appendChild(listItem);
+            if(checked){
+                listItem.classList.add('checked');
+                document.querySelector(`div[data-item-id="${itemId}"]`).children.item(0).children.item(0).children.item(0).checked = true;
+            }
+        }
+    }
+
+    static renderListLayout(listId, listName, nTasksDone, nTasksTotal) {
         const content = document.querySelector("#content");
+        content.dataset.listId = listId;
         content.innerHTML = `
           <div class="content-header">
             <div class="list-titlebar">
