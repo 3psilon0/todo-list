@@ -201,8 +201,10 @@ img {
     position: absolute;
     left: 55px;
     font-size: 18px;
-    width: 45%;
+    width: 55%;
     overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
 }
 
 .tag-icon{
@@ -229,6 +231,15 @@ img {
     backdrop-filter: blur( 8px );
     -webkit-backdrop-filter: blur( 8px );
     border-radius: 20px;
+}
+
+.content-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 200;
+    height: 90vh;
 }
 
 .content-header {
@@ -269,7 +280,7 @@ img {
     justify-content: center;
     align-items: center;
     width: 25%;
-    height: 85%;
+    height: 85vh;
     font-family: 'Poppins', sans-serif;
     background-color: rgb(54, 25, 18);
     color: wheat;
@@ -431,10 +442,6 @@ input[type="radio"]:hover {
     overflow: scroll;
 }
 
-/* .list-item-container * {
-    border: 1px solid red;
-} */
-
 .prio-high {
     border-left: 7px solid rgba(255, 0, 0, 0.338);
 }
@@ -465,18 +472,21 @@ input[type="radio"]:hover {
 }
 
 .item-desc {
-    text-align: center;
+    font-size: 18px;
+    font-weight: 200;
+    text-align: justify;
+    margin-left: 10px;
     overflow-wrap: break-word;
     min-width: 0;
     max-height: 0;
-    transition: max-height 0.2s ease-out;
-    width: 80%;
+    opacity: 0;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out, opacity 0.4s ease-in-out;
+    width: 90%;
     overflow: hidden;
 }
 
-.active .item-desc {
-    border-top: 1px dashed wheat;
-    padding: 20px;
+.dropped {
+    transform: rotate(180deg);
 }
 
 .checked {
