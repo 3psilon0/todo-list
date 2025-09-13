@@ -55,7 +55,7 @@ export default class{
     }
 
     editItem(itemId, title, desc, dueDate, priority){
-        const item = this.items.find(item => item.id === itemId);
+        const item = this.searchItem(itemId);
         item.edit(title, desc, dueDate, priority);
         storage.save(`list-${this.id}`, JSON.stringify(this));
     }
